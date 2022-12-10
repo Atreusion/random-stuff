@@ -1,6 +1,6 @@
 piholeResult=$(pihole status 2>&1)
 
-if [ "$piholeResult" != "[✓] DNS service is running [✓] Pi-hole blocking is Enabled" ]; then
+if [ "$piholeResult" != *"[✓] Pi-hole blocking is Enabled"* ]; then
     curl --retry 3 https://hc-ping.com/{healthcheckurl}
     exit 1;
 else
