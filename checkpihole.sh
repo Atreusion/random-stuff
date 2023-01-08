@@ -1,10 +1,10 @@
 piholeResult=$(pihole status 2>&1)
 
 if [ "$piholeResult" != *"[✓] Pi-hole blocking is enabled"* ]; then
-    curl --retry 3 https://hc-ping.com/f7e69cf9-2513-42e0-a0b3-2c40d4f88c8c
+    curl --retry 3 https://hc-ping.com/{healthcheckurl}
     exit 1;
 else
-    curl --retry 3 https://hc-ping.com/f7e69cf9-2513-42e0-a0b3-2c40d4f88c8c/fail
+    curl --retry 3 https://hc-ping.com/{healthcheckurl}/fail
     exit 1;
 fi
 
